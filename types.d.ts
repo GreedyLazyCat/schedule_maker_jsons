@@ -601,6 +601,7 @@ declare global {
                 day: number;
                 start: number;
                 end: number;
+                availablity: Availability;
             }[];
             /**
              * Ограничения количества пар по дням

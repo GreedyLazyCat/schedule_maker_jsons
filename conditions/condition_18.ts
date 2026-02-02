@@ -79,6 +79,67 @@ const condition_18: SimpleCondition = {
 
   working_days_count: 3,
 
+  complex_conditions: [
+    {
+      name: "Условие 1",
+      scope: {
+        subject: null,
+        study_groups: null,
+        lesson_types: [
+          {
+            id: 1,
+            name: "lecture",
+          },
+        ],
+
+        date_start: "",
+        date_end: "",
+      },
+      time: {
+        intervals: [
+          {
+            day: 1,
+            start: 1,
+            end: 4,
+            availablity: Availability.available,
+          },
+          {
+            day: 2,
+            start: 1,
+            end: 4,
+            availablity: Availability.available,
+          },
+          {
+            day: 3,
+            start: 1,
+            end: 4,
+            availablity: Availability.available,
+          },
+          {
+            day: 4,
+            start: 1,
+            end: 4,
+            availablity: Availability.available,
+          },
+          {
+            day: 5,
+            start: 1,
+            end: 4,
+            availablity: Availability.available,
+          },
+          {
+            day: 6,
+            start: 1,
+            end: 4,
+            availablity: Availability.available,
+          },
+        ],
+        once_per_two_weeks: false,
+        same_lessons_consequtive: false
+      },
+    },
+  ],
+
   /**
    * Дефолтное значение
    */

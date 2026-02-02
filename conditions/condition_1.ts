@@ -7,26 +7,32 @@ const condition_1: SimpleCondition = {
    */
   working_days: [
     {
+      //Пн
       day: 1,
-      availability: Availability.available,
+      availability: Availability.unavailable,
     },
     {
+      //Вт
       day: 2,
       availability: Availability.available,
     },
     {
+      //Ср
       day: 3,
       availability: Availability.available,
     },
     {
+      //Чт
       day: 4,
       availability: Availability.available,
     },
     {
+      //Пт
       day: 5,
       availability: Availability.available,
     },
     {
+      //Сб
       day: 6,
       availability: Availability.available,
     },

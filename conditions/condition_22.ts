@@ -1,8 +1,5 @@
 /**
  * Первая половина дня, не ставить 1-2пары в понедельник.
- *
- * Вот тут опять же, либо селектор пар в простом условии доделывать
- * либо с тем как работает интервалы пар разобраться
  */
 const condition_22: SimpleCondition = {
   /**
@@ -42,7 +39,7 @@ const condition_22: SimpleCondition = {
   ],
 
   /**
-   * Разрешаем пары в первой половине дня (допустим первые 3)
+   * Здесь разрешенные пары не влияют, дальше влияет сложное условие  
    */
   available_lessons: [
     {
@@ -80,6 +77,69 @@ const condition_22: SimpleCondition = {
   ],
 
   //working_days_count здесь не указан - значит любое кол-во дней
+
+  /**
+   * В сложном условии во времени задаем, что во всех днях все пары разрешены,
+   * но в пн ставим, что первые две не доступны
+   */
+  complex_conditions: [
+    {
+      name: "Условия 1",
+      scope: {
+        subject: null,
+        lesson_types: null,
+        study_groups: null,
+        
+        date_start: "",
+        date_end: ""
+      },
+
+      time: {
+
+        intervals: [
+          {
+            day: 1,
+            start: 3,
+            end: 8,
+            availablity: Availability.available,
+          },
+          {
+            day: 2,
+            start: 1,
+            end: 8,
+            availablity: Availability.available,
+          },
+          {
+            day: 3,
+            start: 1,
+            end: 8,
+            availablity: Availability.available,
+          },
+          {
+            day: 4,
+            start: 1,
+            end: 8,
+            availablity: Availability.available,
+          },
+          {
+            day: 5,
+            start: 1,
+            end: 8,
+            availablity: Availability.available,
+          },
+          {
+            day: 6,
+            start: 1,
+            end: 8,
+            availablity: Availability.available,
+          },
+        ],
+
+        once_per_two_weeks: false,
+        same_lessons_consequtive: false
+      }
+    }
+  ],
 
   /**
    * Дефолтное значение
