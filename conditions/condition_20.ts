@@ -16,6 +16,7 @@ const condition_20: SimpleCondition = {
             id: 1,
             name: "ИТ11-БО",
             study_unit_id: 1,
+            study_direction_id: 1
           },
           // ... все группы какого-то одного потока, просто для старта
         ],
@@ -33,6 +34,7 @@ const condition_20: SimpleCondition = {
                 id: 3,
                 name: "ИВТ-11БО",
                 study_unit_id: 1,
+                study_direction_id: 2,
               },
               // ... все группы остальных потоков
             ],

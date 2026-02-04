@@ -15,6 +15,7 @@ const condition_28: SimpleCondition = {
             id: 1,
             name: "ИВТ-41БО",
             study_unit_id: 1,
+            study_direction_id: 1,
           },
         ],
 
@@ -38,19 +39,24 @@ const condition_28: SimpleCondition = {
         {
           type: "the_same_day_as",
           connection_subjects: {
+            subject: null,
             study_groups: [
               {
-                id: 2,
-                name: "ИВТ-42БО",
-                study_unit_id: 1,
+                what_groups: null,
+                which_groups: [
+                  {
+                    id: 2,
+                    name: "ИВТ-42БО",
+                    study_unit_id: 1,
+                    study_direction_id: 2,
+                  },
+                ],
               },
             ],
-            lesson_types: [
-              {
-                id: 1,
-                name: "lecture",
-              },
-            ],
+            lesson_type: {
+              id: 1,
+              name: "lecture",
+            },
           },
         },
       ],

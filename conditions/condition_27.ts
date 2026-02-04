@@ -14,6 +14,7 @@ const condition_27: SimpleCondition = {
             id: 1,
             name: "ИТ-41Бо",
             study_unit_id: 1,
+            study_direction_id: 1
           },
 
           // ... И далее все группы Направления 1
@@ -43,6 +44,7 @@ const condition_27: SimpleCondition = {
                 id: 1,
                 name: "ИВТ-41Бо",
                 study_unit_id: 1,
+                study_direction_id: 2,
               },
             ],
             // .... и далее все группы Направление 2

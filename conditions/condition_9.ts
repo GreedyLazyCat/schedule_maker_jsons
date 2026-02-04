@@ -88,11 +88,7 @@ const condition_9: SimpleCondition = {
     {
       name: "Условие",
       scope: {
-        subject: {
-          id: 1,
-          name: "Предмет X",
-          study_unit_id: 1,
-        },
+        subject: null,
 
         study_groups: null,
         lesson_types: [
@@ -110,19 +106,12 @@ const condition_9: SimpleCondition = {
         {
           type: "the_same_day_as",
           connection_subjects: {
-            subjects: [
-              {
-                id: 1,
-                name: "Предмет X",
-                study_unit_id: 1,
-              },
-            ],
-            lesson_types: [
-              {
-                id: 2,
-                name: "practice",
-              },
-            ],
+            subject: null,
+            study_groups: null,
+            lesson_type: {
+              id: 2,
+              name: "practice",
+            },
           },
         },
       ],

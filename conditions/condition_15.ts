@@ -39,6 +39,7 @@ const condition_15: SimpleCondition = {
           id: 28,
           name: "Предмет 3",
           study_unit_id: 1,
+          elective_course: false,
         },
         study_groups: null,
         lesson_types: [
@@ -59,12 +60,12 @@ const condition_15: SimpleCondition = {
         {
           type: "the_same_day_as",
           connection_subjects: {
-            lesson_types: [
-              {
-                id: 2,
-                name: "practice",
-              },
-            ],
+            subject: null,
+            study_groups: null,
+            lesson_type: {
+              id: 2,
+              name: "practice",
+            },
           },
         },
       ],
@@ -76,6 +77,7 @@ const condition_15: SimpleCondition = {
           id: 28,
           name: "Предмет 2",
           study_unit_id: 1,
+          elective_course: false,
         },
         study_groups: null,
         lesson_types: [
@@ -93,12 +95,12 @@ const condition_15: SimpleCondition = {
         {
           type: "the_same_day_as",
           connection_subjects: {
-            lesson_types: [
-              {
-                id: 2,
-                name: "practice",
-              },
-            ],
+            subject: null,
+            study_groups: null,
+            lesson_type: {
+              id: 2,
+              name: "practice",
+            },
           },
         },
       ],

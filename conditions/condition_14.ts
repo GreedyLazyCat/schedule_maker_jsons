@@ -12,12 +12,14 @@ const condition_14: SimpleCondition = {
           id: 26,
           name: "Какой-то курс по выбору",
           study_unit_id: 1,
+          elective_course: false,
         },
         study_groups: [
           {
             id: 1,
             name: "ИТ-41Бо",
             study_unit_id: 1,
+            study_direction_id: 1,
           },
           // .... и далее все группы потока или направления 1
         ],
@@ -40,6 +42,7 @@ const condition_14: SimpleCondition = {
                 id: 32,
                 name: "ИВТ-42БО",
                 study_unit_id: 2,
+                study_direction_id: 2,
               },
               // ... и далее все группы потока или направления 2, занятия которых надо объеденить с занятиями групп направления 1
             ],

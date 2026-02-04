@@ -89,6 +89,7 @@ const condition_38: SimpleCondition = {
             id: 1,
             name: "ИТ41-БО",
             study_unit_id: 1,
+            study_direction_id: 1
           },
 
           // ... Далее все группы, которые надо будет объенить далее с Направлеием 3
@@ -106,6 +107,7 @@ const condition_38: SimpleCondition = {
                 id: 1,
                 name: "ИВТ-41БО",
                 study_unit_id: 1,
+                study_direction_id: 2
               },
               // ... Далее все группы Направления 3
             ],

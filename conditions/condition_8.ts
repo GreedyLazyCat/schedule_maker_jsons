@@ -6,12 +6,13 @@ const condition_8: SimpleCondition = {
 
   complex_conditions: [
     {
-      name: "Условие",
+      name: "Условие На объединение лекций",
       scope: {
         subject: {
           id: 1,
           name: "Предмет 1",
           study_unit_id: 1,
+          elective_course: false,
         },
 
         study_groups: [
@@ -19,11 +20,13 @@ const condition_8: SimpleCondition = {
             id: 1,
             name: "ИТ-41БО",
             study_unit_id: 1,
+            study_direction_id: 1,
           },
           {
             id: 2,
             name: "ИВТ-41БО",
             study_unit_id: 1,
+            study_direction_id: 2,
           },
           // .... Допустим тут все необходимые группы этого предмета с одних направлений
           // Или вообще стоит null указать, чтобы на все группы распространялось
@@ -34,8 +37,75 @@ const condition_8: SimpleCondition = {
             id: 1,
             name: "lecture",
           },
+        ],
+
+        date_start: "",
+        date_end: "",
+      },
+
+      lesson_connections: [
+        {
+          type: "subject_union",
+          connection_subjects: {
+            subject: {
+              id: 23,
+              name: "Предмет 2",
+              study_unit_id: 2,
+              elective_course: false,
+            },
+            study_groups: [
+              {
+                what_groups: null,
+                which_groups: [
+                  {
+                    id: 1,
+                    name: "ПИЭ-41БО",
+                    study_unit_id: 2,
+                    study_direction_id: 3,
+                  },
+                  // И Все остальные группы разных направлений предмета 2
+                ],
+              },
+            ],
+            lesson_type: {
+              id: 1,
+              name: "lecture",
+            },
+          },
+        },
+      ],
+    },
+
+    {
+      name: "Условие На объединение практик",
+      scope: {
+        subject: {
+          id: 1,
+          name: "Предмет 1",
+          study_unit_id: 1,
+          elective_course: false,
+        },
+
+        study_groups: [
           {
-            id: 5,
+            id: 1,
+            name: "ИТ-41БО",
+            study_unit_id: 1,
+            study_direction_id: 1,
+          },
+          {
+            id: 2,
+            name: "ИВТ-41БО",
+            study_unit_id: 1,
+            study_direction_id: 2,
+          },
+          // .... Допустим тут все необходимые группы этого предмета с одних направлений
+          // Или вообще стоит null указать, чтобы на все группы распространялось
+        ],
+
+        lesson_types: [
+          {
+            id: 1,
             name: "practice",
           },
         ],
@@ -48,21 +118,30 @@ const condition_8: SimpleCondition = {
         {
           type: "subject_union",
           connection_subjects: {
-            subjects: [
-              {
-                id: 23,
-                name: "Предмет 2",
-                study_unit_id: 2,
-              } as Subject,
-            ],
+            subject: {
+              id: 23,
+              name: "Предмет 2",
+              study_unit_id: 2,
+              elective_course: false,
+            },
             study_groups: [
               {
-                id: 1,
-                name: "ПИЭ-41БО",
-                study_unit_id: 2,
+                what_groups: null,
+                which_groups: [
+                  {
+                    id: 1,
+                    name: "ПИЭ-41БО",
+                    study_unit_id: 2,
+                    study_direction_id: 3,
+                  },
+                  // И Все остальные группы разных направлений предмета 2
+                ],
               },
-              // И Все остальные группы разных направлений предмета 2
-            ] as StudyGroup[],
+            ],
+            lesson_type: {
+              id: 1,
+              name: "practice",
+            },
           },
         },
       ],

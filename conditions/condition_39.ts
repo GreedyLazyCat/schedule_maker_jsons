@@ -96,6 +96,7 @@ const condition_39: SimpleCondition = {
             id: 1,
             name: "ИТ41-БО",
             study_unit_id: 1,
+            study_direction_id: 1
           },
 
           // ... Тут как бы какое-нибудь одно направление
@@ -113,6 +114,7 @@ const condition_39: SimpleCondition = {
                 id: 1,
                 name: "ИВТ-41БО",
                 study_unit_id: 1,
+                study_direction_id: 1
               },
               // ... А дальше группы с других направлений
             ],

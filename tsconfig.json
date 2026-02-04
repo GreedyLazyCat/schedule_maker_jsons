@@ -9,7 +9,8 @@
     "outDir": "./dist"
   },
   "files": [
-    "./types.d.ts"
+    "./types.d.ts",
+    "./lesson_connection_types.d.ts",
   ],
   "include": ["./**/*"]
 }

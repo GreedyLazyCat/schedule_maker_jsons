@@ -93,7 +93,16 @@ const condition_11: SimpleCondition = {
       name: "Условие",
       scope: {
         subject: null,
-        study_groups: null,
+        study_groups: [
+          {
+            id: 1,
+            name: "ИТ-41",
+            study_direction_id: 1,
+            study_unit_id: 1
+          },
+          // Группы направления 1
+          // потом все группы направления два
+        ],
         lesson_types: [
           {
             id: 1,
@@ -120,12 +129,13 @@ const condition_11: SimpleCondition = {
         {
           type: "alternate_with",
           connection_subjects: {
-            lesson_types: [
+            subject: null,
+            study_groups: null,
+            lesson_type: 
               {
                 id: 1,
                 name: "practice",
               },
-            ],
           },
         },
       ],
