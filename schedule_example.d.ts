@@ -15,8 +15,8 @@ export const studyGroups: StudyGroup[] = [
 
 
 export const subjects: Subject[] = [
-  { id: 1, name: "Математический Анализ (ИВТ)", elective_course: false, study_unit_id: 1 },
-  { id: 2, name: "Математический Анализ (ИТ)", elective_course: false, study_unit_id: 1 },
+  { id: 1, name: "Математический Анализ", elective_course: false, study_unit_id: 1 },
+  { id: 2, name: "Математический Анализ", elective_course: false, study_unit_id: 1 },
   { id: 3, name: "Алгебра", elective_course: false, study_unit_id: 1 },
   { id: 4, name: "Дискретная математика", elective_course: false, study_unit_id: 1 },
 ];
