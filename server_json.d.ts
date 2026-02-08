@@ -1,226 +1,4 @@
 declare global {
-  /**
-   * Тип учебной еденицы
-   */
-  enum StudyUnitType {
-    semester = "semester",
-    quarter = "quarter",
-    trimseter = "trimester",
-  }
-
-  /**
-   * Тип чередования занятия, числитель, знаменатель или всегда
-   */
-  enum LessonAlternationType {
-    numerator = "numerator",
-    denominator = "denominator",
-    always = "always",
-  }
-
-  /**
-   * Доступность дня
-   */
-  enum Availability {
-    /**
-     * Полностью доступен
-     */
-    available = "available",
-    /**
-     * Доступен, но не желателен
-     */
-    undesirable = "undesirable",
-    /**
-     * Полностью недоступен
-     */
-    unavailable = "unavailable",
-  }
-
-  /**
-   * Enum для дней
-   */
-  enum Days {
-    /**
-     * Понедельник
-     */
-    Mo = "Mo",
-    /**
-     * Вторник
-     */
-    Tu = "Tu",
-    /**
-     * Среда
-     */
-    We = "We",
-    /**
-     * Четверг
-     */
-    Th = "Th",
-    /**
-     * Пятница
-     */
-    Fr = "Fr",
-    /**
-     * Суббота
-     */
-    Sa = "Sa",
-  }
-
-
-  // ----------- <СУЩНОСТИ ИЗ БД> -----------
-  interface ArchivedStudyUnits {
-    study_unit_id: number;
-    user_id: string;
-  }
-
-  interface Assignment {
-    id: number;
-    study_unit_id: number;
-    teacher_id: number;
-  }
-
-  interface AssignmentStudyGroups {
-    study_group_id: number;
-    assignment_id: number;
-  }
-
-  interface AssignmentSubjects {
-    assignment_id: number;
-    subject_id: number;
-  }
-
-  interface AssignmentTypes {
-    assignment_id: number;
-    lesson_type_id: number;
-  }
-
-  interface Classroom {
-    id: number;
-    capacity: number;
-    number: string;
-    study_unit_id: number;
-  }
-
-  interface ClassroomAvailability {
-    id: number;
-    day_index: number;
-    lesson_index: number;
-    type: string;
-    classroom_id: number;
-  }
-
-  interface ClassroomAvailabilityGroups {
-    study_group_id: number;
-    classroom_availability_id: number;
-  }
-
-  interface ClassroomEquipment {
-    classroom_id: number;
-    equipment_unit_id: number;
-    count: number;
-    study_unit_id: number;
-  }
-
-  interface ElectiveCourseGroup {
-    id: number;
-  }
-
-  interface ElectiveCourseGroupSubjects {
-    elective_course_group_id: number;
-    subject_id: number;
-  }
-
-  interface EquipmentUnit {
-    id: number;
-    name: any; // UNKNOWN in DDL
-    study_unit_id: number;
-  }
-
-  interface LessonType {
-    id: number;
-    name: string;
-  }
-
-  interface LessonTypeAmount {
-    subject_id: number;
-    lesson_type_id: number;
-    amount: number;
-  }
-
-  interface PinnedStudyUnits {
-    user_id: string;
-    study_unit_id: number;
-  }
-
-  interface Schedule {
-    id: number;
-    created_at: Date;
-    variant: string;
-    study_unit_id: number;
-  }
-
-  interface StudyDirection {
-    id: number;
-    name: string;
-    study_unit_id: number;
-  }
-
-  interface StudyGroup {
-    id: number;
-    name: string;
-    study_unit_id: number;
-    study_direction_id: number;
-  }
-
-  interface StudyUnit {
-    id: number;
-    name: string;
-    type: string;
-    start_date: Date;
-    end_date: Date;
-    owner_id: string;
-    lesson_duration: number;
-    max_lesson_amount: number;
-    lesson_start_time: number;
-    zero_lesson: number;
-    created_at: Date | null;
-  }
-
-  interface Subject {
-    id: number;
-    name: string;
-    elective_course: boolean;
-    study_unit_id: number;
-  }
-
-  interface SubjectGroups {
-    study_group_id: number;
-    subject_id: number;
-  }
-
-  interface Teacher {
-    id: number;
-    first_name: string;
-    last_name: string;
-    patronymic: string | null;
-    commentary: string | null;
-    study_unit_id: number;
-  }
-
-  interface User {
-    id: string;
-    login: string;
-    password: string;
-  }
-
-  interface Wish {
-    id: number;
-    teacher_id: number;
-    study_unit_id: number;
-    condition: string;
-  }
-
-  // ----------- </СУЩНОСТИ ИЗ БД> -----------
-
   // ----------- <JSON для сервера> -----------
 
   /**
@@ -232,26 +10,32 @@ declare global {
      */
     study_unit: {
       id: number;
+
       /**
        * Название
        */
       name: string;
+
       /**
        * Тип учебной еденицы
        */
       type: StudyUnitType;
+
       /**
-       * Дата начала учебной еденицы
+       * Дата начала учебной еденицы в ISO формате
        */
-      start_date: Date;
+      start_date: string;
+
       /**
-       * Дата конца учебной еденицы
+       * Дата конца учебной еденицы в ISO формате
        */
-      end_date: Date;
+      end_date: string;
+
       /**
        * Пользователь, которому принадлежит учебная еденица
        */
       owner_id: string;
+
       /**
        * Длительность занятия по дням
        * [0-5]
@@ -260,6 +44,7 @@ declare global {
        * 5 - сб
        */
       lesson_duration: number[];
+
       /**
        * Максимально возможное количество занятий по дням
        */
@@ -283,14 +68,17 @@ declare global {
      */
     teachers: {
       id: number;
+
       /**
        * Имя
        */
       first_name: string;
+
       /**
        * Фамилия
        */
       last_name: string;
+
       /**
        * Отчество
        */
@@ -309,6 +97,7 @@ declare global {
      */
     lesson_types: {
       id: number;
+
       /**
        * Название типа предмета
        */
@@ -320,18 +109,22 @@ declare global {
      */
     subjects: {
       id: number;
+
       /**
        * Назвние предмета
        */
       name: string;
+
       /**
        * Количество занятий каждого типа
        */
       lesson_type_lesson_amount: {
+
         /**
          * Тип занятия
          */
         lesson_type_id: number;
+
         /**
          * Количество занятий
          */
@@ -345,10 +138,12 @@ declare global {
      */
     equipment: {
       id: number;
+
       /**
        * Название оборудования
        */
       name: string;
+
       study_unit_id: number;
     }[];
 
@@ -668,12 +463,12 @@ declare global {
   interface ScheduleVariant {
     days: {
       /**
-       * Номер дня (1-7)
+       * День в двух буквенном английском формате 
        */
-      day: number;
+      day: Days;
 
       /**
-       * Время начала занятий
+       * Время начала занятий в ISO формате
        */
       start_time: string;
 
@@ -712,17 +507,17 @@ declare global {
           /**
            * Предмет
            */
-          subject: string;
+          subject: Subject;
 
           /**
            * Аудитория
            */
-          classroom: string;
+          classroom: Classroom;
 
           /**
            * Преподаватель
            */
-          teacher: string;
+          teacher: Teacher;
         };
       }[];
     };
