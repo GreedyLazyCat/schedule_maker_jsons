@@ -63,7 +63,7 @@ declare global {
 
   interface EquipmentUnit {
     id: number;
-    name: any; // UNKNOWN in DDL
+    name: string; 
     study_unit_id: number;
   }
 
@@ -107,8 +107,8 @@ declare global {
     id: number;
     name: string;
     type: string;
-    start_date: Date;
-    end_date: Date;
+    start_date: string;
+    end_date: string;
     owner_id: string;
     lesson_duration: number;
     max_lesson_amount: number;

@@ -42,15 +42,10 @@ const condition_28: SimpleCondition = {
             subject: null,
             study_groups: [
               {
-                what_groups: null,
-                which_groups: [
-                  {
-                    id: 2,
-                    name: "ИВТ-42БО",
-                    study_unit_id: 1,
-                    study_direction_id: 2,
-                  },
-                ],
+                id: 2,
+                name: "ИВТ-42БО",
+                study_unit_id: 1,
+                study_direction_id: 2,
               },
             ],
             lesson_type: {
