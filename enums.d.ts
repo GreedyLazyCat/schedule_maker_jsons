@@ -23,9 +23,41 @@ declare global {
     denominator = "denominator",
 
     /**
-     * Простановка как обычно, без числителей и знаменталей 
+     * Простановка как обычно, без числителей и знаменталей
      */
     usual = "usual",
+  }
+
+  /**
+   * Тип компоновки пар
+   */
+  enum LessonConsecutiveness {
+    /**
+     * Подряд
+     */
+    consecutive = "consecutive",
+
+    /**
+     * НЕ подряд
+     */
+    not_consecutive = "not_consecutive",
+
+    /**
+     * Не важно
+     */
+    not_important = "not_important",
+  }
+
+  enum LessonPlacement {
+    /**
+     * Первой парой
+     */
+    first_lesson = "first_lesson",
+
+    /**
+     * Последней парой
+     */
+    last_lesson = "last_lesson",
   }
 
   /**

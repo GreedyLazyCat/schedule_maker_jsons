@@ -114,6 +114,8 @@ const condition_6: SimpleCondition = {
       },
 
       time: {
+        lesson_alternation: LessonAlternationType.usual,
+        lesson_consecutiveness: LessonConsecutiveness.not_important,
         /**
          * Ставим флаг, что один раз в две недели
          */

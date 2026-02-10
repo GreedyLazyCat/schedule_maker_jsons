@@ -134,6 +134,10 @@ const condition_18: SimpleCondition = {
             availablity: Availability.available,
           },
         ],
+       
+        lesson_alternation: LessonAlternationType.usual,
+        lesson_consecutiveness: LessonConsecutiveness.not_important,
+        
         once_per_two_weeks: false,
         same_lessons_consequtive: false
       },

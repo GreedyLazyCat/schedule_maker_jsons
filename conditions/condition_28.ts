@@ -33,6 +33,9 @@ const condition_28: SimpleCondition = {
       time: {
         once_per_two_weeks: false,
         same_lessons_consequtive: true,
+
+        lesson_alternation: LessonAlternationType.usual,
+        lesson_consecutiveness: LessonConsecutiveness.not_important,
       },
 
       lesson_connections: [

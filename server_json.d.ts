@@ -119,7 +119,6 @@ declare global {
        * Количество занятий каждого типа
        */
       lesson_type_lesson_amount: {
-
         /**
          * Тип занятия
          */
@@ -373,6 +372,33 @@ declare global {
         sign: "=" | "<=";
         limit: number;
       }[];
+
+      /**
+       * Куда ставить занятия - числитель/знаменатель/всегда
+       */
+      lesson_alternation: LessonAlternationType;
+
+      /**
+       * Сколько пар в неделю по предмету.
+       * Может находиться только в условии, у которого в области определения задан предмет.
+       * Не указано (undefined) - не учитывается.
+       */
+      lesson_amount?: number;
+
+      /**
+       * Как компоновать пары
+       */
+      lesson_consecutiveness: LessonConsecutiveness;
+
+      /**
+       * Расположение пар по дням
+       * Если не указано ничего, то значит ничего не применяем
+       */
+      lesson_placement?: {
+        day: number;
+        placement: LessonPlacement;
+      }[];
+
       /**
        * Занятия раз в две недели
        */
@@ -421,7 +447,6 @@ declare global {
      */
     lesson_connections?: LessonConnection[];
 
-
     /**
      * Связанные группы занятий
      */
@@ -461,7 +486,7 @@ declare global {
   interface ScheduleVariant {
     days: {
       /**
-       * День в двух буквенном английском формате 
+       * День в двух буквенном английском формате
        */
       day: Days;
 

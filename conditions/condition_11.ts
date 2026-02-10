@@ -120,6 +120,9 @@ const condition_11: SimpleCondition = {
       time: {
         once_per_two_weeks: true,
         same_lessons_consequtive: false,
+        
+        lesson_alternation: LessonAlternationType.usual,
+        lesson_consecutiveness: LessonConsecutiveness.not_important,
       },
 
       /**
