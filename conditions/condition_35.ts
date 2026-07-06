@@ -7,126 +7,138 @@ const condition_35: SimpleCondition = {
   /**
    * Разрешаем пн, вт, ср, чт
    */
-  working_days: [
+  workingDays: [
     {
       //Пн
       day: 1,
-      availability: Availability.available,
+      availability: "available",
     },
     {
       //Вт
       day: 2,
-      availability: Availability.available,
+      availability: "available",
     },
     {
       //Ср
       day: 3,
-      availability: Availability.available,
+      availability: "available",
     },
     {
       //Чт
       day: 4,
-      availability: Availability.available,
+      availability: "available",
     },
     {
       //Пт
       day: 5,
-      availability: Availability.unavailable,
+      availability: "unavailable",
     },
     {
       //Сб
       day: 6,
-      availability: Availability.unavailable,
+      availability: "unavailable",
     },
   ],
 
   /**
    * Разрешенные пары придется настраивать в сложном условии
    */
-  available_lessons: [
+  availableLessons: [
     {
-      lesson_index: 1,
-      availability: Availability.available,
+      lessonIndex: 1,
+      availability: "available",
     },
     {
-      lesson_index: 2,
-      availability: Availability.available,
+      lessonIndex: 2,
+      availability: "available",
     },
     {
-      lesson_index: 3,
-      availability: Availability.available,
+      lessonIndex: 3,
+      availability: "available",
     },
     {
-      lesson_index: 4,
-      availability: Availability.available,
+      lessonIndex: 4,
+      availability: "available",
     },
     {
-      lesson_index: 5,
-      availability: Availability.available,
+      lessonIndex: 5,
+      availability: "available",
     },
     {
-      lesson_index: 6,
-      availability: Availability.available,
+      lessonIndex: 6,
+      availability: "available",
     },
     {
-      lesson_index: 7,
-      availability: Availability.available,
+      lessonIndex: 7,
+      availability: "available",
     },
     {
-      lesson_index: 8,
-      availability: Availability.available,
+      lessonIndex: 8,
+      availability: "available",
     },
   ],
 
-  //working_days_count здесь не указан - значит любое кол-во дней
+  //workingDaysCount здесь не указан - значит любое кол-во дней
 
-  complex_conditions: [
+  complexConditions: [
     {
       name: "Условие 1",
       scope: {
         subject: null,
-        study_groups: null,
-        lesson_types: null,
+        studyGroups: null,
+        lessonTypes: null,
 
-        date_start: "",
-        date_end: "",
+        dateStart: "",
+        dateEnd: "",
       },
       /**
        * пн - 1-2 пара, вт - 1-2 пара, ср - 1-3 пары, чт - любая пара, пт - выходной
        */
       time: {
-        intervals: [
-          {
-            day: 1,
-            start: 1,
-            end: 2,
-            availablity: Availability.available,
-          },
-          {
-            day: 2,
-            start: 1,
-            end: 2,
-            availablity: Availability.available,
-          },
-          {
-            day: 3,
-            start: 1,
-            end: 3,
-            availablity: Availability.available,
-          },
-          {
-            day: 4,
-            start: 1,
-            end: 8,
-            availablity: Availability.available,
-          },
+        availability: [
+          // day 1: 1..2 available, 3..8 unavailable
+          { dayIndex: 1, lessonIndex: 1, type: "available" },
+          { dayIndex: 1, lessonIndex: 2, type: "available" },
+          { dayIndex: 1, lessonIndex: 3, type: "unavailable" },
+          { dayIndex: 1, lessonIndex: 4, type: "unavailable" },
+          { dayIndex: 1, lessonIndex: 5, type: "unavailable" },
+          { dayIndex: 1, lessonIndex: 6, type: "unavailable" },
+          { dayIndex: 1, lessonIndex: 7, type: "unavailable" },
+          { dayIndex: 1, lessonIndex: 8, type: "unavailable" },
+          // day 2: 1..2 available, 3..8 unavailable
+          { dayIndex: 2, lessonIndex: 1, type: "available" },
+          { dayIndex: 2, lessonIndex: 2, type: "available" },
+          { dayIndex: 2, lessonIndex: 3, type: "unavailable" },
+          { dayIndex: 2, lessonIndex: 4, type: "unavailable" },
+          { dayIndex: 2, lessonIndex: 5, type: "unavailable" },
+          { dayIndex: 2, lessonIndex: 6, type: "unavailable" },
+          { dayIndex: 2, lessonIndex: 7, type: "unavailable" },
+          { dayIndex: 2, lessonIndex: 8, type: "unavailable" },
+          // day 3: 1..3 available, 4..8 unavailable
+          { dayIndex: 3, lessonIndex: 1, type: "available" },
+          { dayIndex: 3, lessonIndex: 2, type: "available" },
+          { dayIndex: 3, lessonIndex: 3, type: "available" },
+          { dayIndex: 3, lessonIndex: 4, type: "unavailable" },
+          { dayIndex: 3, lessonIndex: 5, type: "unavailable" },
+          { dayIndex: 3, lessonIndex: 6, type: "unavailable" },
+          { dayIndex: 3, lessonIndex: 7, type: "unavailable" },
+          { dayIndex: 3, lessonIndex: 8, type: "unavailable" },
+          // day 4: 1..8 all available
+          { dayIndex: 4, lessonIndex: 1, type: "available" },
+          { dayIndex: 4, lessonIndex: 2, type: "available" },
+          { dayIndex: 4, lessonIndex: 3, type: "available" },
+          { dayIndex: 4, lessonIndex: 4, type: "available" },
+          { dayIndex: 4, lessonIndex: 5, type: "available" },
+          { dayIndex: 4, lessonIndex: 6, type: "available" },
+          { dayIndex: 4, lessonIndex: 7, type: "available" },
+          { dayIndex: 4, lessonIndex: 8, type: "available" },
         ],
-        once_per_two_weeks: false,
-        same_lessons_consequtive: false,
+        oncePerTwoWeeks: false,
+        sameLessonsConsequtive: false,
 
 
-        lesson_alternation: LessonAlternationType.usual,
-        lesson_consecutiveness: LessonConsecutiveness.not_important,
+        lessonAlternation: "usual",
+        lessonConsecutiveness: "not_important",
       },
     },
   ],
@@ -134,5 +146,5 @@ const condition_35: SimpleCondition = {
   /**
    * Дефолтное значение
    */
-  lesson_limit: 8,
+  lessonLimit: 8,
 };

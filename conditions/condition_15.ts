@@ -5,26 +5,26 @@
 const condition_15: SimpleCondition = {
   //У простого условия все стандарт, все разрешено, начну с сложного
 
-  complex_conditions: [
+  complexConditions: [
     // В этом условии ставим, что пары проводим в 210
     {
       name: "Условие 1",
       scope: {
         //Тут думаю должно быть для всех предметов групп и типов занятий
         subject: null,
-        study_groups: null,
-        lesson_types: null,
+        studyGroups: null,
+        lessonTypes: null,
 
-        date_start: "",
-        date_end: "",
+        dateStart: "",
+        dateEnd: "",
       },
 
-      required_equipment: {
+      requiredEquipment: {
         classrooms: [
           {
             id: 23,
             number: "201",
-            study_unit_id: 1,
+            studyUnitId: 1,
             capacity: 50,
           },
         ],
@@ -38,31 +38,31 @@ const condition_15: SimpleCondition = {
         subject: {
           id: 28,
           name: "Предмет 3",
-          study_unit_id: 1,
-          elective_course: false,
+          studyUnitId: 1,
+          electiveCourseGroupId: null,
         },
-        study_groups: null,
-        lesson_types: [
+        studyGroups: null,
+        lessonTypes: [
           {
             id: 1,
             name: "lecture",
           },
         ],
 
-        date_start: "",
-        date_end: "",
+        dateStart: "",
+        dateEnd: "",
       },
 
       /**
        * Пишем связь, что для лекци предмета 3, всех групп ставим в один день с практиками (предмет и группы беруться из области примиенения условия)
        */
-      lesson_connections: [
+      lessonConnections: [
         {
           type: "the_same_day_as",
-          connection_subjects: {
+          connectionSubjects: {
             subject: null,
-            study_groups: null,
-            lesson_type: {
+            studyGroups: null,
+            lessonType: {
               id: 2,
               name: "practice",
             },
@@ -76,28 +76,28 @@ const condition_15: SimpleCondition = {
         subject: {
           id: 28,
           name: "Предмет 2",
-          study_unit_id: 1,
-          elective_course: false,
+          studyUnitId: 1,
+          electiveCourseGroupId: null,
         },
-        study_groups: null,
-        lesson_types: [
+        studyGroups: null,
+        lessonTypes: [
           {
             id: 1,
             name: "lecture",
           },
         ],
 
-        date_start: "",
-        date_end: "",
+        dateStart: "",
+        dateEnd: "",
       },
 
-      lesson_connections: [
+      lessonConnections: [
         {
           type: "the_same_day_as",
-          connection_subjects: {
+          connectionSubjects: {
             subject: null,
-            study_groups: null,
-            lesson_type: {
+            studyGroups: null,
+            lessonType: {
               id: 2,
               name: "practice",
             },
@@ -110,81 +110,81 @@ const condition_15: SimpleCondition = {
   /**
    * Разрешаем все дни
    */
-  working_days: [
+  workingDays: [
     {
       //Пн
       day: 1,
-      availability: Availability.available,
+      availability: "available",
     },
     {
       //Вт
       day: 2,
-      availability: Availability.available,
+      availability: "available",
     },
     {
       //Ср
       day: 3,
-      availability: Availability.available,
+      availability: "available",
     },
     {
       //Чт
       day: 4,
-      availability: Availability.available,
+      availability: "available",
     },
     {
       //Пт
       day: 5,
-      availability: Availability.available,
+      availability: "available",
     },
     {
       //Сб
       day: 6,
-      availability: Availability.available,
+      availability: "available",
     },
   ],
 
   /**
    * Разрешаем все пары
    */
-  available_lessons: [
+  availableLessons: [
     {
-      lesson_index: 1,
-      availability: Availability.available,
+      lessonIndex: 1,
+      availability: "available",
     },
     {
-      lesson_index: 2,
-      availability: Availability.available,
+      lessonIndex: 2,
+      availability: "available",
     },
     {
-      lesson_index: 3,
-      availability: Availability.available,
+      lessonIndex: 3,
+      availability: "available",
     },
     {
-      lesson_index: 4,
-      availability: Availability.available,
+      lessonIndex: 4,
+      availability: "available",
     },
     {
-      lesson_index: 5,
-      availability: Availability.available,
+      lessonIndex: 5,
+      availability: "available",
     },
     {
-      lesson_index: 6,
-      availability: Availability.available,
+      lessonIndex: 6,
+      availability: "available",
     },
     {
-      lesson_index: 7,
-      availability: Availability.available,
+      lessonIndex: 7,
+      availability: "available",
     },
     {
-      lesson_index: 8,
-      availability: Availability.available,
+      lessonIndex: 8,
+      availability: "available",
     },
   ],
 
-  //working_days_count здесь не указан - значит любое кол-во дней
+  //workingDaysCount здесь не указан - значит любое кол-во дней
 
   /**
    * Дефолтное значение
    */
-  lesson_limit: 8,
+  lessonLimit: 8,
 };

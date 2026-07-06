@@ -4,70 +4,70 @@
 const condition_8: SimpleCondition = {
   // ---- Для простого условия все по стандарту начну сразу со сложного
 
-  complex_conditions: [
+  complexConditions: [
     {
       name: "Условие На объединение лекций",
       scope: {
         subject: {
           id: 1,
           name: "Предмет 1",
-          study_unit_id: 1,
-          elective_course: false,
+          studyUnitId: 1,
+          electiveCourseGroupId: null,
         },
 
-        study_groups: [
+        studyGroups: [
           {
             id: 1,
             name: "ИТ-41БО",
-            study_unit_id: 1,
-            study_direction_id: 1,
+            studyUnitId: 1,
+            studyDirectionId: 1,
           },
           {
             id: 2,
             name: "ИВТ-41БО",
-            study_unit_id: 1,
-            study_direction_id: 2,
+            studyUnitId: 1,
+            studyDirectionId: 2,
           },
           // .... Допустим тут все необходимые группы этого предмета с одних направлений
           // Или вообще стоит null указать, чтобы на все группы распространялось
         ],
 
-        lesson_types: [
+        lessonTypes: [
           {
             id: 1,
             name: "lecture",
           },
         ],
 
-        date_start: "",
-        date_end: "",
+        dateStart: "",
+        dateEnd: "",
       },
 
-      lesson_connections: [
+      lessonConnections: [
         {
           type: "subject_union",
-          connection_subjects: {
+          connectionSubjects: {
             subject: {
               id: 23,
               name: "Предмет 2",
-              study_unit_id: 2,
-              elective_course: false,
+              studyUnitId: 2,
+              electiveCourseGroupId: null,
             },
-            study_groups: [
+            studyGroups: [
               {
-                what_groups: null,
-                which_groups: [
+                whatGroups: null,
+                whichGroups: [
                   {
                     id: 1,
                     name: "ПИЭ-41БО",
-                    study_unit_id: 2,
-                    study_direction_id: 3,
+                    studyUnitId: 2,
+                    studyDirectionId: 3,
                   },
                   // И Все остальные группы разных направлений предмета 2
                 ],
               },
             ],
-            lesson_type: {
+            lessonType: {
               id: 1,
               name: "lecture",
             },
@@ -82,63 +82,63 @@ const condition_8: SimpleCondition = {
         subject: {
           id: 1,
           name: "Предмет 1",
-          study_unit_id: 1,
-          elective_course: false,
+          studyUnitId: 1,
+          electiveCourseGroupId: null,
         },
 
-        study_groups: [
+        studyGroups: [
           {
             id: 1,
             name: "ИТ-41БО",
-            study_unit_id: 1,
-            study_direction_id: 1,
+            studyUnitId: 1,
+            studyDirectionId: 1,
           },
           {
             id: 2,
             name: "ИВТ-41БО",
-            study_unit_id: 1,
-            study_direction_id: 2,
+            studyUnitId: 1,
+            studyDirectionId: 2,
           },
           // .... Допустим тут все необходимые группы этого предмета с одних направлений
           // Или вообще стоит null указать, чтобы на все группы распространялось
         ],
 
-        lesson_types: [
+        lessonTypes: [
           {
             id: 1,
             name: "practice",
           },
         ],
 
-        date_start: "",
-        date_end: "",
+        dateStart: "",
+        dateEnd: "",
       },
 
-      lesson_connections: [
+      lessonConnections: [
         {
           type: "subject_union",
-          connection_subjects: {
+          connectionSubjects: {
             subject: {
               id: 23,
               name: "Предмет 2",
-              study_unit_id: 2,
-              elective_course: false,
+              studyUnitId: 2,
+              electiveCourseGroupId: null,
             },
-            study_groups: [
+            studyGroups: [
               {
-                what_groups: null,
-                which_groups: [
+                whatGroups: null,
+                whichGroups: [
                   {
                     id: 1,
                     name: "ПИЭ-41БО",
-                    study_unit_id: 2,
-                    study_direction_id: 3,
+                    studyUnitId: 2,
+                    studyDirectionId: 3,
                   },
                   // И Все остальные группы разных направлений предмета 2
                 ],
               },
             ],
-            lesson_type: {
+            lessonType: {
               id: 1,
               name: "practice",
             },
@@ -151,81 +151,81 @@ const condition_8: SimpleCondition = {
   /**
    * Разрешаем все дни
    */
-  working_days: [
+  workingDays: [
     {
       //Пн
       day: 1,
-      availability: Availability.available,
+      availability: "available",
     },
     {
       //Вт
       day: 2,
-      availability: Availability.available,
+      availability: "available",
     },
     {
       //Ср
       day: 3,
-      availability: Availability.available,
+      availability: "available",
     },
     {
       //Чт
       day: 4,
-      availability: Availability.available,
+      availability: "available",
     },
     {
       //Пт
       day: 5,
-      availability: Availability.available,
+      availability: "available",
     },
     {
       //Сб
       day: 6,
-      availability: Availability.available,
+      availability: "available",
     },
   ],
 
   /**
    * Разрешаем все пары
    */
-  available_lessons: [
+  availableLessons: [
     {
-      lesson_index: 1,
-      availability: Availability.available,
+      lessonIndex: 1,
+      availability: "available",
     },
     {
-      lesson_index: 2,
-      availability: Availability.available,
+      lessonIndex: 2,
+      availability: "available",
     },
     {
-      lesson_index: 3,
-      availability: Availability.available,
+      lessonIndex: 3,
+      availability: "available",
     },
     {
-      lesson_index: 4,
-      availability: Availability.available,
+      lessonIndex: 4,
+      availability: "available",
     },
     {
-      lesson_index: 5,
-      availability: Availability.available,
+      lessonIndex: 5,
+      availability: "available",
     },
     {
-      lesson_index: 6,
-      availability: Availability.available,
+      lessonIndex: 6,
+      availability: "available",
     },
     {
-      lesson_index: 7,
-      availability: Availability.available,
+      lessonIndex: 7,
+      availability: "available",
     },
     {
-      lesson_index: 8,
-      availability: Availability.available,
+      lessonIndex: 8,
+      availability: "available",
     },
   ],
 
-  //working_days_count здесь не указан - значит любое кол-во дней
+  //workingDaysCount здесь не указан - значит любое кол-во дней
 
   /**
    * Дефолтное значение
    */
-  lesson_limit: 8,
+  lessonLimit: 8,
 };

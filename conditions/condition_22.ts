@@ -5,141 +5,155 @@ const condition_22: SimpleCondition = {
   /**
    * Запрещаем понедельник
    */
-  working_days: [
+  workingDays: [
     {
       //Пн
       day: 1,
-      availability: Availability.unavailable,
+      availability: "unavailable",
     },
     {
       //Вт
       day: 2,
-      availability: Availability.available,
+      availability: "available",
     },
     {
       //Ср
       day: 3,
-      availability: Availability.available,
+      availability: "available",
     },
     {
       //Чт
       day: 4,
-      availability: Availability.available,
+      availability: "available",
     },
     {
       //Пт
       day: 5,
-      availability: Availability.available,
+      availability: "available",
     },
     {
       //Сб
       day: 6,
-      availability: Availability.available,
+      availability: "available",
     },
   ],
 
   /**
    * Здесь разрешенные пары не влияют, дальше влияет сложное условие  
    */
-  available_lessons: [
+  availableLessons: [
     {
-      lesson_index: 1,
-      availability: Availability.available,
+      lessonIndex: 1,
+      availability: "available",
     },
     {
-      lesson_index: 2,
-      availability: Availability.available,
+      lessonIndex: 2,
+      availability: "available",
     },
     {
-      lesson_index: 3,
-      availability: Availability.available,
+      lessonIndex: 3,
+      availability: "available",
     },
     {
-      lesson_index: 4,
-      availability: Availability.unavailable,
+      lessonIndex: 4,
+      availability: "unavailable",
     },
     {
-      lesson_index: 5,
-      availability: Availability.unavailable,
+      lessonIndex: 5,
+      availability: "unavailable",
     },
     {
-      lesson_index: 6,
-      availability: Availability.unavailable,
+      lessonIndex: 6,
+      availability: "unavailable",
     },
     {
-      lesson_index: 7,
-      availability: Availability.unavailable,
+      lessonIndex: 7,
+      availability: "unavailable",
     },
     {
-      lesson_index: 8,
-      availability: Availability.unavailable,
+      lessonIndex: 8,
+      availability: "unavailable",
     },
   ],
 
-  //working_days_count здесь не указан - значит любое кол-во дней
+  //workingDaysCount здесь не указан - значит любое кол-во дней
 
   /**
    * В сложном условии во времени задаем, что во всех днях все пары разрешены,
    * но в пн ставим, что первые две не доступны
    */
-  complex_conditions: [
+  complexConditions: [
     {
       name: "Условия 1",
       scope: {
         subject: null,
-        lesson_types: null,
-        study_groups: null,
+        lessonTypes: null,
+        studyGroups: null,
         
-        date_start: "",
-        date_end: ""
+        dateStart: "",
+        dateEnd: ""
       },
 
       time: {
 
-        intervals: [
-          {
-            day: 1,
-            start: 3,
-            end: 8,
-            availablity: Availability.available,
-          },
-          {
-            day: 2,
-            start: 1,
-            end: 8,
-            availablity: Availability.available,
-          },
-          {
-            day: 3,
-            start: 1,
-            end: 8,
-            availablity: Availability.available,
-          },
-          {
-            day: 4,
-            start: 1,
-            end: 8,
-            availablity: Availability.available,
-          },
-          {
-            day: 5,
-            start: 1,
-            end: 8,
-            availablity: Availability.available,
-          },
-          {
-            day: 6,
-            start: 1,
-            end: 8,
-            availablity: Availability.available,
-          },
+        availability: [
+          // day 1: 3..8 available, 1..2 unavailable
+          { dayIndex: 1, lessonIndex: 1, type: "unavailable" },
+          { dayIndex: 1, lessonIndex: 2, type: "unavailable" },
+          { dayIndex: 1, lessonIndex: 3, type: "available" },
+          { dayIndex: 1, lessonIndex: 4, type: "available" },
+          { dayIndex: 1, lessonIndex: 5, type: "available" },
+          { dayIndex: 1, lessonIndex: 6, type: "available" },
+          { dayIndex: 1, lessonIndex: 7, type: "available" },
+          { dayIndex: 1, lessonIndex: 8, type: "available" },
+          // day 2..6: all 1..8 available
+          { dayIndex: 2, lessonIndex: 1, type: "available" },
+          { dayIndex: 2, lessonIndex: 2, type: "available" },
+          { dayIndex: 2, lessonIndex: 3, type: "available" },
+          { dayIndex: 2, lessonIndex: 4, type: "available" },
+          { dayIndex: 2, lessonIndex: 5, type: "available" },
+          { dayIndex: 2, lessonIndex: 6, type: "available" },
+          { dayIndex: 2, lessonIndex: 7, type: "available" },
+          { dayIndex: 2, lessonIndex: 8, type: "available" },
+          { dayIndex: 3, lessonIndex: 1, type: "available" },
+          { dayIndex: 3, lessonIndex: 2, type: "available" },
+          { dayIndex: 3, lessonIndex: 3, type: "available" },
+          { dayIndex: 3, lessonIndex: 4, type: "available" },
+          { dayIndex: 3, lessonIndex: 5, type: "available" },
+          { dayIndex: 3, lessonIndex: 6, type: "available" },
+          { dayIndex: 3, lessonIndex: 7, type: "available" },
+          { dayIndex: 3, lessonIndex: 8, type: "available" },
+          { dayIndex: 4, lessonIndex: 1, type: "available" },
+          { dayIndex: 4, lessonIndex: 2, type: "available" },
+          { dayIndex: 4, lessonIndex: 3, type: "available" },
+          { dayIndex: 4, lessonIndex: 4, type: "available" },
+          { dayIndex: 4, lessonIndex: 5, type: "available" },
+          { dayIndex: 4, lessonIndex: 6, type: "available" },
+          { dayIndex: 4, lessonIndex: 7, type: "available" },
+          { dayIndex: 4, lessonIndex: 8, type: "available" },
+          { dayIndex: 5, lessonIndex: 1, type: "available" },
+          { dayIndex: 5, lessonIndex: 2, type: "available" },
+          { dayIndex: 5, lessonIndex: 3, type: "available" },
+          { dayIndex: 5, lessonIndex: 4, type: "available" },
+          { dayIndex: 5, lessonIndex: 5, type: "available" },
+          { dayIndex: 5, lessonIndex: 6, type: "available" },
+          { dayIndex: 5, lessonIndex: 7, type: "available" },
+          { dayIndex: 5, lessonIndex: 8, type: "available" },
+          { dayIndex: 6, lessonIndex: 1, type: "available" },
+          { dayIndex: 6, lessonIndex: 2, type: "available" },
+          { dayIndex: 6, lessonIndex: 3, type: "available" },
+          { dayIndex: 6, lessonIndex: 4, type: "available" },
+          { dayIndex: 6, lessonIndex: 5, type: "available" },
+          { dayIndex: 6, lessonIndex: 6, type: "available" },
+          { dayIndex: 6, lessonIndex: 7, type: "available" },
+          { dayIndex: 6, lessonIndex: 8, type: "available" },
         ],
 
-        lesson_alternation: LessonAlternationType.usual,
-        lesson_consecutiveness: LessonConsecutiveness.not_important,
+        lessonAlternation: "usual",
+        lessonConsecutiveness: "not_important",
        
-        once_per_two_weeks: false,
-        same_lessons_consequtive: false
+        oncePerTwoWeeks: false,
+        sameLessonsConsequtive: false
       }
     }
   ],
@@ -147,5 +161,5 @@ const condition_22: SimpleCondition = {
   /**
    * Дефолтное значение
    */
-  lesson_limit: 8,
+  lessonLimit: 8,
 };

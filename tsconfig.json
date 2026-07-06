@@ -6,13 +6,16 @@
     "strict": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
+    "rootDir": "./",
     "outDir": "./dist"
   },
   "files": [
-    "./server_json.d.ts",
-    "./bd_entities.d.ts",
+    "./entities.d.ts",
     "./enums.d.ts",
+    "./conditions.d.ts",
     "./lesson_connection_types.d.ts",
+    "./schedule_generation_query.d.ts",
+    "./schedule_variant.d.ts"
   ],
-  "include": ["./**/*"]
+  "include": ["./conditions/**/*", "./conditions.d.ts", "./entities.d.ts", "./enums.d.ts", "./lesson_connection_types.d.ts", "./schedule_generation_query.d.ts", "./schedule_variant.d.ts"]
 }

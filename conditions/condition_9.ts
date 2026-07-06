@@ -5,36 +5,36 @@ const condition_9: SimpleCondition = {
   /**
    * Разрешаем все дни, кроме понедельника
    */
-  working_days: [
+  workingDays: [
     {
       //Пн
       day: 1,
-      availability: Availability.unavailable,
+      availability: "unavailable",
     },
     {
       //Вт
       day: 2,
-      availability: Availability.available,
+      availability: "available",
     },
     {
       //Ср
       day: 3,
-      availability: Availability.available,
+      availability: "available",
     },
     {
       //Чт
       day: 4,
-      availability: Availability.available,
+      availability: "available",
     },
     {
       //Пт
       day: 5,
-      availability: Availability.available,
+      availability: "available",
     },
     {
       //Сб
       day: 6,
-      availability: Availability.available,
+      availability: "available",
     },
   ],
 
@@ -42,73 +42,73 @@ const condition_9: SimpleCondition = {
    * Допустим, что первые две пары - это с утра, поэтому их разрешаем,
    * остальное ставим нежелательно.
    */
-  available_lessons: [
+  availableLessons: [
     {
-      lesson_index: 1,
-      availability: Availability.available,
+      lessonIndex: 1,
+      availability: "available",
     },
     {
-      lesson_index: 2,
-      availability: Availability.available,
+      lessonIndex: 2,
+      availability: "available",
     },
     {
-      lesson_index: 3,
-      availability: Availability.undesirable,
+      lessonIndex: 3,
+      availability: "undesirable",
     },
     {
-      lesson_index: 4,
-      availability: Availability.undesirable,
+      lessonIndex: 4,
+      availability: "undesirable",
     },
     {
-      lesson_index: 5,
-      availability: Availability.undesirable,
+      lessonIndex: 5,
+      availability: "undesirable",
     },
     {
-      lesson_index: 6,
-      availability: Availability.undesirable,
+      lessonIndex: 6,
+      availability: "undesirable",
     },
     {
-      lesson_index: 7,
-      availability: Availability.undesirable,
+      lessonIndex: 7,
+      availability: "undesirable",
     },
     {
-      lesson_index: 8,
-      availability: Availability.undesirable,
+      lessonIndex: 8,
+      availability: "undesirable",
     },
   ],
 
-  working_days_count: 1,
+  workingDaysCount: 1,
 
   /**
    * Дефолтное значение
    */
-  lesson_limit: 8,
+  lessonLimit: 8,
 
-  complex_conditions: [
+  complexConditions: [
     {
       name: "Условие",
       scope: {
         subject: null,
 
-        study_groups: null,
-        lesson_types: [
+        studyGroups: null,
+        lessonTypes: [
           {
             id: 1,
             name: "lecture",
           },
         ],
 
-        date_start: "",
-        date_end: "",
+        dateStart: "",
+        dateEnd: "",
       },
 
-      lesson_connections: [
+      lessonConnections: [
         {
           type: "the_same_day_as",
-          connection_subjects: {
+          connectionSubjects: {
             subject: null,
-            study_groups: null,
-            lesson_type: {
+            studyGroups: null,
+            lessonType: {
               id: 2,
               name: "practice",
             },

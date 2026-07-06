@@ -5,25 +5,24 @@
  * Вот такое "Если" не задать, поэтому задаю просто что, пара раз в две недели и что первой парой.
  */
 const condition_17: SimpleCondition = {
-  complex_conditions: [
+  complexConditions: [
     {
       name: "Условие 1",
       scope: {
         subject: null,
-        study_groups: null,
-        lesson_types: null,
+        studyGroups: null,
+        lessonTypes: null,
 
-        date_start: "",
-        date_end: "",
+        dateStart: "",
+        dateEnd: "",
       },
 
       time: {
-        once_per_two_weeks: true,
-        same_lessons_consequtive: false,
+        oncePerTwoWeeks: true,
+        sameLessonsConsequtive: false,
 
-        lesson_alternation: LessonAlternationType.usual,
-        lesson_placement: LessonPlacement.not_important,
-        lesson_consecutiveness: LessonConsecutiveness.not_important,
+        lessonAlternation: "usual",
+        lessonConsecutiveness: "not_important",
       },
     },
   ],
@@ -31,81 +30,81 @@ const condition_17: SimpleCondition = {
   /**
    * Разрешаем все дни
    */
-  working_days: [
+  workingDays: [
     {
       //Пн
       day: 1,
-      availability: Availability.available,
+      availability: "available",
     },
     {
       //Вт
       day: 2,
-      availability: Availability.available,
+      availability: "available",
     },
     {
       //Ср
       day: 3,
-      availability: Availability.available,
+      availability: "available",
     },
     {
       //Чт
       day: 4,
-      availability: Availability.available,
+      availability: "available",
     },
     {
       //Пт
       day: 5,
-      availability: Availability.available,
+      availability: "available",
     },
     {
       //Сб
       day: 6,
-      availability: Availability.available,
+      availability: "available",
     },
   ],
 
   /**
    * Разрешаем только первую пару
    */
-  available_lessons: [
+  availableLessons: [
     {
-      lesson_index: 1,
-      availability: Availability.available,
+      lessonIndex: 1,
+      availability: "available",
     },
     {
-      lesson_index: 2,
-      availability: Availability.unavailable,
+      lessonIndex: 2,
+      availability: "unavailable",
     },
     {
-      lesson_index: 3,
-      availability: Availability.unavailable,
+      lessonIndex: 3,
+      availability: "unavailable",
     },
     {
-      lesson_index: 4,
-      availability: Availability.unavailable,
+      lessonIndex: 4,
+      availability: "unavailable",
     },
     {
-      lesson_index: 5,
-      availability: Availability.unavailable,
+      lessonIndex: 5,
+      availability: "unavailable",
     },
     {
-      lesson_index: 6,
-      availability: Availability.unavailable,
+      lessonIndex: 6,
+      availability: "unavailable",
     },
     {
-      lesson_index: 7,
-      availability: Availability.unavailable,
+      lessonIndex: 7,
+      availability: "unavailable",
     },
     {
-      lesson_index: 8,
-      availability: Availability.unavailable,
+      lessonIndex: 8,
+      availability: "unavailable",
     },
   ],
 
-  //working_days_count здесь не указан - значит любое кол-во дней
+  //workingDaysCount здесь не указан - значит любое кол-во дней
 
   /**
    * Дефолтное значение
    */
-  lesson_limit: 8,
+  lessonLimit: 8,
 };

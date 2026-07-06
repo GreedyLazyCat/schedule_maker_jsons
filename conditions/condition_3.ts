@@ -8,31 +8,31 @@ const condition_3: SimpleCondition = {
   /**
    * Разрешаем все дни
    */
-  working_days: [
+  workingDays: [
     {
       //Пн
       day: 1,
-      availability: Availability.available,
+      availability: "available",
     },
     {
       //Вт
       day: 2,
-      availability: Availability.available,
+      availability: "available",
     },
     {
       //Ср
       day: 3,
-      availability: Availability.available,
+      availability: "available",
     },
     {
       //Чт
       day: 4,
-      availability: Availability.available,
+      availability: "available",
     },
     {
       //Пт
       day: 5,
-      availability: Availability.available,
+      availability: "available",
     },
     {
       //Сб
@@ -41,67 +41,67 @@ const condition_3: SimpleCondition = {
        * Тут смотря как трактовать - "готова работать по субботам", может означать "нежелательно, но можно",
        * это на усмотрение пользователя, я ставлю просто можно
        */
-      availability: Availability.available,
+      availability: "available",
     },
   ],
 
   /**
    * Разрешаем все пары
    */
-  available_lessons: [
+  availableLessons: [
     {
-      lesson_index: 1,
-      availability: Availability.available,
+      lessonIndex: 1,
+      availability: "available",
     },
     {
-      lesson_index: 2,
-      availability: Availability.available,
+      lessonIndex: 2,
+      availability: "available",
     },
     {
-      lesson_index: 3,
-      availability: Availability.available,
+      lessonIndex: 3,
+      availability: "available",
     },
     {
-      lesson_index: 4,
-      availability: Availability.available,
+      lessonIndex: 4,
+      availability: "available",
     },
     {
-      lesson_index: 5,
-      availability: Availability.available,
+      lessonIndex: 5,
+      availability: "available",
     },
     {
-      lesson_index: 6,
-      availability: Availability.available,
+      lessonIndex: 6,
+      availability: "available",
     },
     {
-      lesson_index: 7,
-      availability: Availability.available,
+      lessonIndex: 7,
+      availability: "available",
     },
     {
-      lesson_index: 8,
-      availability: Availability.available,
+      lessonIndex: 8,
+      availability: "available",
     },
   ],
 
   /**
    * 3 рабочих дня
    */
-  working_days_count: 3,
+  workingDaysCount: 3,
 
   /**
    * Дефолтное значение
    */
-  lesson_limit: 8,
+  lessonLimit: 8,
 
   /**
    * Рабочие дни не подряд
    */
-  consequitive_working_days: false,
+  consequitiveWorkingDays: false,
 
   /**
    * Теперь с помощью сложного условия задаем хотябы один день не с первой пары
    */
-  complex_conditions: [
+  complexConditions: [
     {
       name: "Условие",
       scope: {
@@ -113,15 +113,15 @@ const condition_3: SimpleCondition = {
         /**
          * null - распространяется на все типы
          */
-        lesson_types: null,
+        lessonTypes: null,
 
         /**
          * null - на все группы
          */
-        study_groups: null,
+        studyGroups: null,
 
-        date_start: "",
-        date_end: "",
+        dateStart: "",
+        dateEnd: "",
       },
 
       /**
@@ -131,21 +131,26 @@ const condition_3: SimpleCondition = {
         /**
          * В текущем варианте возможно только выбрать какой-то конкретный день, например понедельник, и сказать
          * что в пн у нас занятия не с первой пары, а со 2 по 8.
+         * Разворачиваем диапазон { day: 1, start: 2, end: 8 } в 8 по-слотовых записей availability:
+         *  - lessonIndex 1 -> "unavailable" (до диапазона)
+         *  - lessonIndex 2..8 -> "available" (внутри диапазона)
          */
-        intervals: [
-          {
-            day: 1,
-            start: 2,
-            end: 8,
-            availablity: Availability.available,
-          },
+        availability: [
+          { dayIndex: 1, lessonIndex: 1, type: "unavailable" },
+          { dayIndex: 1, lessonIndex: 2, type: "available" },
+          { dayIndex: 1, lessonIndex: 3, type: "available" },
+          { dayIndex: 1, lessonIndex: 4, type: "available" },
+          { dayIndex: 1, lessonIndex: 5, type: "available" },
+          { dayIndex: 1, lessonIndex: 6, type: "available" },
+          { dayIndex: 1, lessonIndex: 7, type: "available" },
+          { dayIndex: 1, lessonIndex: 8, type: "available" },
         ],
 
-        lesson_alternation: LessonAlternationType.usual,
-        lesson_consecutiveness: LessonConsecutiveness.not_important,
+        lessonAlternation: "usual",
+        lessonConsecutiveness: "not_important",
 
-        once_per_two_weeks: false,
-        same_lessons_consequtive: false,
+        oncePerTwoWeeks: false,
+        sameLessonsConsequtive: false,
       },
     },
   ],

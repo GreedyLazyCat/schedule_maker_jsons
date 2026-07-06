@@ -1,112 +1,44 @@
 declare global {
-  /**
-   * Тип учебной еденицы
-   */
-  enum StudyUnitType {
-    semester = "semester",
-    quarter = "quarter",
-    trimseter = "trimester",
-  }
+  // ----------- < Enums > -----------
 
   /**
-   * Тип чередования занятия, числитель, знаменатель или всегда
+   * Тип учебной единицы
    */
-  enum LessonAlternationType {
-    /**
-     * Числитель
-     */
-    numerator = "numerator",
-
-    /**
-     * Знаменатель
-     */
-    denominator = "denominator",
-
-    /**
-     * Простановка как обычно, без числителей и знаменталей
-     */
-    usual = "usual",
-  }
+  type StudyUnitType = "semester" | "quarter" | "trimester";
 
   /**
-   * Тип компоновки пар
+   * Доступность.
+   * Три состояния: доступно / доступно но нежелательно / недоступно.
    */
-  enum LessonConsecutiveness {
-    /**
-     * Подряд
-     */
-    consecutive = "consecutive",
-
-    /**
-     * НЕ подряд
-     */
-    not_consecutive = "not_consecutive",
-
-    /**
-     * Не важно
-     */
-    not_important = "not_important",
-  }
-
-  enum LessonPlacement {
-    /**
-     * Первой парой
-     */
-    first_lesson = "first_lesson",
-
-    /**
-     * Последней парой
-     */
-    last_lesson = "last_lesson",
-  }
+  type Availability = "available" | "undesirable" | "unavailable";
 
   /**
-   * Доступность дня
+   * Тип чередования занятия.
+   * numerator - числитель
+   * denominator - знаменатель
+   * usual - без чередования (всегда)
    */
-  enum Availability {
-    /**
-     * Полностью доступен
-     */
-    available = "available",
-    /**
-     * Доступен, но не желателен
-     */
-    undesirable = "undesirable",
-    /**
-     * Полностью недоступен
-     */
-    unavailable = "unavailable",
-  }
+  type LessonAlternationType = "numerator" | "denominator" | "usual";
 
   /**
-   * Enum для дней
+   * Тип компоновки пар (подряд / не подряд / не важно).
    */
-  enum Days {
-    /**
-     * Понедельник
-     */
-    Mo = "Mo",
-    /**
-     * Вторник
-     */
-    Tu = "Tu",
-    /**
-     * Среда
-     */
-    We = "We",
-    /**
-     * Четверг
-     */
-    Th = "Th",
-    /**
-     * Пятница
-     */
-    Fr = "Fr",
-    /**
-     * Суббота
-     */
-    Sa = "Sa",
-  }
+  type LessonConsecutiveness =
+    | "consecutive"
+    | "not_consecutive"
+    | "not_important";
+
+  /**
+   * Расположение пары в дне: первой / последней.
+   */
+  type LessonPlacement = "first_lesson" | "last_lesson";
+
+  /**
+   * Статус генерации расписания.
+   */
+  type ScheduleGenerationStatus = "pending" | "generated" | "failed";
+
+  // ----------- </ Enums > -----------
 }
 
 export {};
